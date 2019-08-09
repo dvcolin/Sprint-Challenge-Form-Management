@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import FormikForm from './components/SignUpForm'
+import {FormikForm} from './components/SignUpForm'
 
 function App() {
   return (

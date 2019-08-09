@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, fireEvent, getByTestId } from '@testing-library/react'
 import '@testing-library/react/cleanup-after-each'
-import FormikForm from './SignUpForm'
+import {FormikForm} from './SignUpForm'
 
 describe('<FormikForm />', () => {
     it('should render the heading `Sign Up`', () => {

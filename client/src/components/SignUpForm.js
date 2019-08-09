@@ -37,6 +37,7 @@ const SignUpForm = ({values, touched, errors, status}) => {
         console.log('HEYYYY!')
     }
 
+
     useEffect(() => {
         if(status) {
             setUsers(users => [...users, status])
@@ -63,7 +64,7 @@ const SignUpForm = ({values, touched, errors, status}) => {
 }
 
 
-const FormikForm = withFormik({
+export const FormikForm = withFormik({
     mapPropsToValues({ username, password }) {
         return {
             username: username || '',
@@ -78,7 +79,7 @@ const FormikForm = withFormik({
 
     handleSubmit(values, { setStatus, resetForm }) {
         axios
-        .post('http://localhost:6000/api/register', values)
+        .post('https://reqres.in/api/users/', values)
         .then(res => {
             console.log('post result', res);
             setStatus(res.data);
@@ -87,7 +88,16 @@ const FormikForm = withFormik({
         .catch(err => {
             console.log(err.response)
         })
+        // axios
+        // .post('https://reqres.in/api/users/', values)
+        // .then(res => {
+        //     console.log('post result', res);
+        //     setStatus(res.data);
+        //     resetForm();
+        // })
+        // .catch(err => {
+        //     console.log(err.response)
+        // })
     }
 })(SignUpForm)
 
-export default FormikForm
