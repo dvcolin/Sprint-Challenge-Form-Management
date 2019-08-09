@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const UserCardContainer = styled.div`
     height: 300px;
     width: 300px;
-    background: green;
+    background: lightblue;
 `;
 
 const UserName = styled.h2``;

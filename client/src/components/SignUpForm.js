@@ -5,7 +5,9 @@ import * as Yup from 'yup';
 import styled from 'styled-components'
 import UserCard from './UserCard'
 
-const FormHeader = styled.h1``
+const FormHeader = styled.h1`
+    color: white;
+`
 
 const StyledForm = styled(Form)`
     display: flex;
@@ -17,7 +19,9 @@ const StyledForm = styled(Form)`
     margin: 0 auto;
 `
 
-const StyledField = styled(Field)``
+const StyledField = styled(Field)`
+    margin: 1rem;
+`
 
 
 const SubmitButton = styled.button``
@@ -53,7 +57,7 @@ const SignUpForm = ({values, touched, errors, status}) => {
                 )}
                 <SubmitButton onClick={logSomething} data-testid='submitButton' type='submit'>Submit</SubmitButton>
             </StyledForm>
-            {users.map(user => <UserCard name={user.username} password={user.password} />)}
+            {users.map((user, index) => <UserCard key={index} name={user.username} password={user.password} />)}
             </div>
         )
 }
@@ -74,7 +78,7 @@ const FormikForm = withFormik({
 
     handleSubmit(values, { setStatus, resetForm }) {
         axios
-        .post('https://reqres.in/api/users', values)
+        .post('http://localhost:6000/api/register', values)
         .then(res => {
             console.log('post result', res);
             setStatus(res.data);
